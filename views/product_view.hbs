@@ -3,6 +3,9 @@
 	<meta charset="utf-8">
 	<title>CRUD Node.js and Mysql</title>
   <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+  <style>
+        
+    </style>
 </head>
 <body>
   <div class="container">
@@ -37,6 +40,19 @@
     </table>
   </div>
 
+<div class="container">
+        <div class="no-box">
+            {{!-- <span class="no">1</span> --}}
+        </div>
+  
+        <button class="btn" onclick="prev()">
+            prev
+        </button>
+  
+        <button class="btn" onclick="next()">
+            next
+        </button>
+    </div>
 	<!-- Add New Product Modal-->
 	  <form action="/save" method="post">
         <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -148,6 +164,62 @@
       });
 
     });
+
+
+  {{!-- added some code for next and prev  --}}
+
+      var totalPage=4
+        var no_box = document
+            .querySelector('.no-box');
+              
+        var i = 0;
+  
+        function prev() {
+  
+            // Start position 
+            if (i == 0) {
+  
+                // Add disabled attribute on
+                // prev button
+                document.getElementsByClassName(
+                        'prev').disabled = true;
+  
+                // Remove disabled attribute 
+                // from next button 
+                document.getElementsByClassName(
+                        'next').disabled = false;
+            } else {
+                i--;
+                return setNo();
+            }
+        }
+  
+        function next() {
+  
+            // End position
+            if (i == totalPage) {
+  
+                // Add disabled attribute on 
+                // next button
+                document.getElementsByClassName(
+                        'next').disabled = true;
+  
+                // Remove disabled attribute
+                // from prev button
+                document.getElementsByClassName(
+                        'prev').disabled = false;
+            } else {
+                i++;
+                return setNo();
+            }
+        }
+  
+        function setNo() {
+  
+            // Change innerhtml
+            return no_box.innerHTML = i;
+        }
+
 </script>
 </body>
 </html>
