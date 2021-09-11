@@ -59,6 +59,7 @@ app.get('/', function (req, res) {
   .then(function(results) {
     numRows = results[0].numRows;
     numPages = Math.ceil(numRows / numPerPage);
+    console.log('Total rows:', numRows);
     console.log('Total pages:', numPages);
   })
   .then(() => queryAsync('select p.product_id, p.product_name, p.product_price , p.category_id, c.category_name from product p , category c where p.category_id=c.category_id ORDER BY product_id ASC LIMIT ' + limit))
