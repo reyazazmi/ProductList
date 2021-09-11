@@ -51,6 +51,13 @@ ADD CONSTRAINT `category_id`
 -- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root123';
 -- flush privileges;
 
+-----------------
+INSERT INTO `my_db`.`category`(`category_id`,`category_name`)VALUES(11,'electronics');
+INSERT INTO `my_db`.`category`(`category_id`,`category_name`)VALUES(22,'Groceries');
+INSERT INTO `my_db`.`category`(`category_id`,`category_name`)VALUES(33,'Cloths');
+INSERT INTO `my_db`.`category`(`category_id`,`category_name`)VALUES(44,'vegitables');
+
+--------------
 
 
 INSERT INTO `my_db`.`product`(`product_name`,`product_price`,`category_id`)VALUES('p1',100000,11);
